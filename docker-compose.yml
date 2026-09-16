@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: flowboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: flowboard
+      POSTGRES_PASSWORD: flowboard
+      POSTGRES_DB: flowboard
+    ports:
+      - "5433:5432"
+    volumes:
+      - flowboard_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  flowboard_postgres_data:
