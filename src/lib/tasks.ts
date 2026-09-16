@@ -58,12 +58,13 @@ export const updateTask = createServerFn({
 	});
 
 export const deleteTask = createServerFn({
-	method: 'POST'
-}).validator(
-	taskSchema.partial().extend({
-		id: z.number().int().positive(),
-	}),
-)
-.handler(async ({data}) => {
-	return await db.delete(tasks).where(eq(tasks.id, data.id))
+	method: "POST",
 })
+	.validator(
+		taskSchema.partial().extend({
+			id: z.number().int().positive(),
+		}),
+	)
+	.handler(async ({ data }) => {
+		return await db.delete(tasks).where(eq(tasks.id, data.id));
+	});
