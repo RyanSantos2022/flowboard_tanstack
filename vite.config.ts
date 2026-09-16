@@ -9,7 +9,7 @@ import { defineConfig } from "vite";
 const config = defineConfig({
 	resolve: { tsconfigPaths: true },
 	plugins: [
-		cloudflare(),
+		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		devtools(),
 		tailwindcss(),
 		tanstackStart(),
